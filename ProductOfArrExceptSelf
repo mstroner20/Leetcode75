@@ -1,0 +1,54 @@
+        //Nick White explains: 
+        //Loop through to the end of the arr and get all the prods of all nums
+        //Loop through from the end to the beginning and get all the prods of the nums
+        
+        int N = nums.length; 
+        int[] left_products  = new int[N];
+        int[] right_products = new int[N];
+        int[] prods = new int[N];
+        left_products[0] = 1; 
+        right_products[N-1] = 1; 
+        
+        for(int i = 1; i < N; i++)
+        {
+            left_products[i] = nums[i-1] * left_products[i-1];
+        }
+        
+        for(int i = N-2; i >=0; i--)
+        {
+            right_products[i] = nums[i+1] * right_products[i+1];
+        }
+        
+        for(int i = 0; i < N; i++)
+        {
+            prods[i] = left_products[i] * right_products[i];
+        }
+        
+      
+        return prods; 
+        
+       
+        /**BRUTE FORCE METHOD - TOO SLOW ****
+        int badIndex = 0;
+        int total = 1; 
+        int[] answer = new int[nums.length];
+        
+        for(int i = 0; i < nums.length; i++)
+        {
+           for(int j = 0; j < nums.length; j++)
+           {
+               if(j != badIndex)
+               {
+                   total *= nums[j];
+               }
+           }
+            
+           answer[i] = total; 
+           total = 1; 
+           badIndex++;
+        }
+        
+        return answer;
+        */
+    }
+}
