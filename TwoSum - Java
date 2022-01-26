@@ -1,0 +1,25 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        HashMap<Integer,Integer> indexMap = new HashMap<Integer,Integer>();
+        
+        for(int i = 0; i < nums.length; i++)
+        {
+            Integer requiredNum = (Integer)(target - nums[i]); //Finding diff in current Index 
+            
+            if(indexMap.containsKey(requiredNum))   //If hashmap contains diff index
+            {
+                int toReturn[] = {indexMap.get(requiredNum), i};    //returns an int arr with the correct num and index
+                return toReturn;
+            }
+
+            indexMap.put(nums[i], i);   //If diff not found in hashmap then put value/index key into the hashmap
+        }
+        
+        return null; //Never reached
+        
+        //O(N) runtime 
+        
+        
+    }
+}
