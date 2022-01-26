@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+        
+        int maxProfit = 0;
+        int lowestPrice = 23000000; //max int range to get the absolute lowest price from index 0
+        
+        for(int i = 0; i < prices.size(); i++)
+        {
+            if(prices.at(i) < lowestPrice)
+            {
+                lowestPrice = prices.at(i);
+            }
+            else if(prices.at(i) - lowestPrice > maxProfit) maxProfit = prices.at(i) - lowestPrice; //if num is not the lowest then find profit diff
+        }
+        
+        return maxProfit;  
+    }
+};
