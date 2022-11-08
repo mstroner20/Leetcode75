@@ -16,7 +16,7 @@ class Solution {
             indexMap.put(nums[i], i);   //If diff not found in hashmap then put value/index key into the hashmap
         }
         
-        return null; //Never reached
+        return null; 
         
         
         
